@@ -1,4 +1,7 @@
-## This first line will likely take a few seconds. Be patient!
+## Exploratory Data Analysis: Course Project 2
+
+## @Joan Cardona Sanchez, 2015, Plot 1
+
 library(dplyr)
 NEI <- readRDS("summarySCC_PM25.rds")
 NEI <- tbl_df(NEI)
