@@ -5,7 +5,8 @@
 library(dplyr)
 NEI <- readRDS("summarySCC_PM25.rds")
 NEI <- tbl_df(NEI)
-NEI <- select(NEI, year, Emissions)
+NEI <- select(NEI, year, fips, Emissions)
+NEI <- filter(NEI, fips == "24510") #Only Baltimore City: fips == "24510"
 
 NEI$year <- as.factor(NEI$year) #the 4 levels are "1999" "2002" "2005" "2008"
 years <- levels(NEI$year)
@@ -23,9 +24,9 @@ e4 <- sum(d4$Emissions, na.rm = T) #I should loop this...
 df <- data.frame(as.numeric(years), c(e1, e2, e3, e4))
 colnames(df) <- c("Years", "Emissions")
 
-png(file = "plot1.png", width = 480, height = 480)
+png(file = "plot2.png", width = 480, height = 480)
 
-plot(df$Years, df$Emissions, xlab = "Years", ylab = "Total tons of Emissions", xaxt = "n",
+plot(df$Years, df$Emissions, xlab = "Years", ylab = "Tons of Emissions in Baltimore City", xaxt = "n",
      ylim = c(0.9 * e4, 1.05 * e1),
      col = "blue", pch = 19)
 axis(1, at = years)
