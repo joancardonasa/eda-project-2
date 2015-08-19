@@ -1,6 +1,6 @@
 ## Exploratory Data Analysis: Course Project 2
 
-## @Joan Cardona Sanchez, 2015, Plot 1
+## @Joan Cardona Sanchez, 2015, Plot 2
 
 library(dplyr)
 NEI <- readRDS("summarySCC_PM25.rds")
